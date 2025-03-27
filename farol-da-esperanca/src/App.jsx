@@ -1,13 +1,16 @@
 
 
 import './App.css'
+import Footer from './components/Footer/inde'
+import Header from './components/Header'
 
 function App() {
  
 
   return (
     <div className='container'>
-      <h1>Falol da esperaca 2.0</h1>
+      <Header />
+      <Footer />
     </div>
   )
 }
