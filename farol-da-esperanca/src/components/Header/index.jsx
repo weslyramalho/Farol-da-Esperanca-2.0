@@ -1,5 +1,8 @@
 import "./header.css";
 import logo from '../../assets/img/logo.png'
+import { Link } from "react-router-dom";
+
+
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg  head">
@@ -23,21 +26,32 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav naveg">
-            <a className="nav-link opc" href="index.html">
+            <Link to="/">
+            <a className="nav-link opc">
               HOME
             </a>
-            <a className="nav-link opc" href="saude.html">
-              SAÚDE
+            </Link>
+            <Link to="/oportunidades">
+            <a className="nav-link opc">
+              OPORTUNIDADES
             </a>
-            <a className="nav-link opc" href="educacao.html">
-              EDUCAÇÃO
+            </Link>
+           <Link to="/recursoseapoio">
+           <a className="nav-link opc">
+              RECURSOS E APOIO
             </a>
-            <a className="nav-link opc " href="emprego.html">
-              EMPREGO
+           </Link>
+           <Link to="/historiasdesucesso">
+           <a className="nav-link opc ">
+              HISTÓRIAS DE SUCESSO
             </a>
-            <a className="nav-link opc" href="sobre-nos.html">
+           </Link>
+            <Link to="/sobrenos">
+            <a className="nav-link opc">
               SOBRE NÓS
             </a>
+           </Link>
+            
           </div>
         </div>
       </div>
