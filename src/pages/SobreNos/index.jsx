@@ -1,4 +1,4 @@
-import './SobreNos.css'
+import './sobreNos.css'
 const SobreNos =()=>{
     return(
         <div className="container">
