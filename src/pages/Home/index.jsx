@@ -4,7 +4,6 @@ import segundaImagem from "../../assets/img/refugiados/woman-8499959_1280.jpg";
 import terceiraImagem from "../../assets/img/refugiados/engineers-8499881_1280.jpg";
 
 const Home = () => {
-  
   return (
     <div className="container mt-5 container-md">
       <div id="carouselExampleCaptions" className="carousel slide">
