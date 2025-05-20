@@ -90,7 +90,7 @@ const [showPassword, setShowPassword] = useState(false);
 
   return (
     <>
-      <div className="login-container">
+      <div className="log-container">
         <div className="login-form-container">
           {/* Se você tiver um arquivo de imagem para o logo, substitua o div abaixo */}
           <div className="logo"><img src={logo} ></img></div>
