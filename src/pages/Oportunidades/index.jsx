@@ -4,11 +4,13 @@ import ListarVagas from "../../components/ListarVagas";
 import CadastrarCurriculo from "../../components/CadastrarCurriculo";
 import CadastroVagas from "../../components/CadastroVagas";
 import DetalhesVagaModal from "../../components/DetalhesVagaModal";
-import { BriefcaseIcon, HomeIcon, ListChecksIcon, UserPlusIcon } from "../../components/icons";
-
-
-
-
+import {
+  BriefcaseIcon,
+  HomeIcon,
+  ListChecksIcon,
+  UserPlusIcon,
+} from "../../components/icons";
+import Login from "../../components/Login";
 
 const Oportunidades = () => {
   const [currentPage, setCurrentPage] = useState("oportunidades");
@@ -61,6 +63,7 @@ const Oportunidades = () => {
 
   const [vagaSelecionada, setVagaSelecionada] = useState(null);
   const [termoPesquisa, setTermoPesquisa] = useState("");
+  const [loc, setLoc] = useState("");
 
   useEffect(() => {
     localStorage.setItem("vagas", JSON.stringify(vagas));
@@ -70,9 +73,32 @@ const Oportunidades = () => {
     localStorage.setItem("curriculos", JSON.stringify(curriculos));
   }, [curriculos]);
 
+  const setarInicio = () => {
+    setCurrentPage("oportunidades");
+    setEscolha("");
+  };
+  const handleEmpresa = () => {
+    setCurrentPage("login");
+    setLoc("Empresa");
+  };
+
+   const handleCandidato = () => {
+    setCurrentPage("login");
+    setLoc("Candidato");
+  };
+  const liberaAcesso = () => {
+    if (loc === "Empresa") {
+      setCurrentPage("cadastroVagas");
+      setEscolha(loc);
+    } else if(loc == "Candidato") {
+      setCurrentPage("listarVagas");
+      setEscolha("Candidato");
+    }
+
+  };
   const adicionarNovaVaga = (novaVaga) => {
     setVagas((prevVagas) => [novaVaga, ...prevVagas]);
-    setCurrentPage("verVagas");
+    setCurrentPage("listarVagass");
   };
 
   const adicionarNovoCurriculo = (novoCurriculo) => {
@@ -109,6 +135,8 @@ const Oportunidades = () => {
 
   const renderPage = () => {
     switch (currentPage) {
+      case "login":
+        return <Login isLogado={liberaAcesso} />;
       case "cadastroVagas":
         return <CadastroVagas onNovaVaga={adicionarNovaVaga} />;
       case "cadastrarCurriculo":
@@ -140,7 +168,10 @@ const Oportunidades = () => {
                   vaga para encontrar o candidato ideal.
                 </p>
                 <div className="flex g-3">
-                  <button className="col-md-6  border-0 p-2 m-2" onClick={() => setEscolha("Candidato")}>
+                  <button
+                    className="col-md-6  border-0 p-2 m-2"
+                    onClick={handleCandidato}
+                  >
                     <div className="p-4 bg-light border rounded h-100">
                       <h2 className="h4 text-primary-emphasis mb-2">
                         Para Candidatos
@@ -151,7 +182,10 @@ const Oportunidades = () => {
                       </p>
                     </div>
                   </button>
-                  <button className="col-md-6 border-0 p-2 m-2" onClick={() => setEscolha("Empresa")}>
+                  <button
+                    className="col-md-6 border-0 p-2 m-2"
+                    onClick={handleEmpresa}
+                  >
                     <div className="p-4 bg-light border rounded h-100">
                       <h2 className="h4 text-success-emphasis mb-2">
                         Para Empresas
@@ -193,7 +227,7 @@ const Oportunidades = () => {
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
                   <button
-                    onClick={() => setCurrentPage("oportunidades")}
+                    onClick={setarInicio}
                     className="nav-link btn btn-link text-white d-flex align-items-center"
                   >
                     <HomeIcon />{" "}
@@ -201,9 +235,11 @@ const Oportunidades = () => {
                   </button>
                 </li>
 
-               
-
-                <li className={`nav-item painel ${escolha == "Candidato" ? 'ativo' : 'inativo'}`}>
+                <li
+                  className={`nav-item painel ${
+                    escolha == "Candidato" ? "ativo" : "inativo"
+                  }`}
+                >
                   <button
                     onClick={() => setCurrentPage("listarVagas")}
                     className="nav-link btn btn-link text-white d-flex align-items-center"
@@ -212,7 +248,11 @@ const Oportunidades = () => {
                     <span className="d-none d-sm-inline ms-1">Ver Vagas</span>
                   </button>
                 </li>
-                 <li className={`nav-item painel ${escolha == "Candidato" ? 'ativo' : 'inativo'}`}>
+                <li
+                  className={`nav-item painel ${
+                    escolha == "Candidato" ? "ativo" : "inativo"
+                  }`}
+                >
                   <button
                     onClick={() => setCurrentPage("cadastrarCurriculo")}
                     className="nav-link btn btn-link text-white d-flex align-items-center"
@@ -223,9 +263,12 @@ const Oportunidades = () => {
                     </span>
                   </button>
                 </li>
-                
-                 
-                <li className={`nav-item painel ${escolha == "Empresa" ? 'ativo' : 'inativo'}`}>
+
+                <li
+                  className={`nav-item painel ${
+                    escolha == "Empresa" ? "ativo" : "inativo"
+                  }`}
+                >
                   <button
                     onClick={() => setCurrentPage("cadastroVagas")}
                     className="nav-link btn btn-link text-white d-flex align-items-center"
@@ -236,8 +279,6 @@ const Oportunidades = () => {
                     </span>
                   </button>
                 </li>
-                
-               
               </ul>
             </div>
           </div>
