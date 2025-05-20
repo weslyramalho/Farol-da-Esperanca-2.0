@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from "../../assets/img/logo.png"
-import "./login.css";
+import "./login.css"
 import {  faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 
