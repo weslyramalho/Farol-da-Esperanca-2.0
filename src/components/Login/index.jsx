@@ -89,7 +89,7 @@ const [showPassword, setShowPassword] = useState(false);
   };
 
   return (
-    <>
+    
       <div className="log-container">
         <div className="login-form-container">
           {/* Se você tiver um arquivo de imagem para o logo, substitua o div abaixo */}
@@ -165,7 +165,7 @@ const [showPassword, setShowPassword] = useState(false);
           </button>
         </div>
       </div>
-    </>
+    
   );
 };
 
