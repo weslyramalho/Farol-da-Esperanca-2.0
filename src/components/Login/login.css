@@ -1,5 +1,6 @@
  .log-container {
     background-color: #FFFBE4;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;

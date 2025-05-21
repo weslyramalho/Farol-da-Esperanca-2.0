@@ -12,6 +12,10 @@ import {
 } from "../../components/icons";
 import Login from "../../components/Login";
 
+
+import VisualizarCurriculoModal from "../../components/VisualizarCurriculoModal";
+import VagasEmpresa from "../../components/VagasEmpresa";
+
 const Oportunidades = () => {
   const [currentPage, setCurrentPage] = useState("oportunidades");
   const [escolha, setEscolha] = useState("");
@@ -58,9 +62,19 @@ const Oportunidades = () => {
 
   const [curriculos, setCurriculos] = useState(() => {
     const curriculosSalvos = localStorage.getItem("curriculos");
-    return curriculosSalvos ? JSON.parse(curriculosSalvos) : [];
+    return curriculosSalvos ? JSON.parse(curriculosSalvos) : [
+      {
+      id: 1,
+      nome: "João Silva",
+      email: "joao@exemplo.com",
+      telefone: "(11) 99999-9999",
+      resumo: "Desenvolvedor com 5 anos de experiência...",
+      dataEnvio: "2023-05-15"
+    },
+    ];
   });
-
+ const [curriculoSelecionado, setCurriculoSelecionado] = useState(null);
+  const [mostrarModal, setMostrarModal] = useState(false);
   const [vagaSelecionada, setVagaSelecionada] = useState(null);
   const [termoPesquisa, setTermoPesquisa] = useState("");
   const [loc, setLoc] = useState("");
@@ -72,6 +86,16 @@ const Oportunidades = () => {
   useEffect(() => {
     localStorage.setItem("curriculos", JSON.stringify(curriculos));
   }, [curriculos]);
+
+  const abrirModal = (curriculo) => {
+    setCurriculoSelecionado(curriculo);
+    setMostrarModal(true);
+  };
+
+  const fecharModal = () => {
+    setMostrarModal(false);
+    setCurriculoSelecionado(null);
+  };
 
   const setarInicio = () => {
     setCurrentPage("oportunidades");
@@ -88,7 +112,7 @@ const Oportunidades = () => {
   };
   const liberaAcesso = () => {
     if (loc === "Empresa") {
-      setCurrentPage("cadastroVagas");
+      setCurrentPage("vagasempresa");
       setEscolha(loc);
     } else if(loc == "Candidato") {
       setCurrentPage("listarVagas");
@@ -98,7 +122,7 @@ const Oportunidades = () => {
   };
   const adicionarNovaVaga = (novaVaga) => {
     setVagas((prevVagas) => [novaVaga, ...prevVagas]);
-    setCurrentPage("listarVagass");
+    setCurrentPage("listarVagas");
   };
 
   const adicionarNovoCurriculo = (novoCurriculo) => {
@@ -114,6 +138,10 @@ const Oportunidades = () => {
     setVagaSelecionada(null);
   };
 
+  const handleFecharModalCurriculo =() => {
+    setCurriculoSelecionado(null);
+  }
+
   const handleAplicarCurriculoParaVaga = (vaga) => {
     console.log(
       `Usuário aplicou para a vaga: ${vaga.titulo} na empresa ${vaga.empresa}`
@@ -123,7 +151,13 @@ const Oportunidades = () => {
   const handlePesquisaChange = (event) => {
     setTermoPesquisa(event.target.value);
   };
+const handleAtualizarVaga = (vagaAtualizada) => {
+  setVagas(vagas.map(v => v.id === vagaAtualizada.id ? vagaAtualizada : v));
+};
 
+const handleRemoverVaga = (id) => {
+  setVagas(vagas.filter(v => v.id !== id));
+};
   const vagasFiltradas = vagas.filter((vaga) => {
     const termo = termoPesquisa.toLowerCase();
     return (
@@ -135,6 +169,64 @@ const Oportunidades = () => {
 
   const renderPage = () => {
     switch (currentPage) {
+      case "vagasempresa":
+        return (
+  <div>
+    <CadastroVagas onNovaVaga={adicionarNovaVaga} />
+    <VagasEmpresa 
+      vagas={vagas} 
+      onAtualizarVaga={handleAtualizarVaga} 
+      onRemoverVaga={handleRemoverVaga} 
+    />
+  </div>
+);
+      case "visualizarcurriculomodal":
+        return(
+          <>
+           <VisualizarCurriculoModal 
+        onClose={handleFecharModalCurriculo}
+        curriculo={curriculoSelecionado} 
+        />
+         <div className="container mt-4">
+      <h2>Lista de Currículos</h2>
+      
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {curriculos.map(curriculo => (
+            <tr key={curriculo.id}>
+              <td>{curriculo.nome}</td>
+              <td>{curriculo.email}</td>
+              <td>
+                <button 
+                  className="btn btpadrao btn-sm"
+                  onClick={() => abrirModal(curriculo)}
+                >
+                  Visualizar
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {/* Modal */}
+      {mostrarModal && (
+        <VisualizarCurriculoModal 
+          curriculo={curriculoSelecionado} 
+          onClose={fecharModal} 
+        />
+      )}
+    </div>
+    </>
+    );
+    
       case "login":
         return <Login isLogado={liberaAcesso} />;
       case "cadastroVagas":
@@ -151,6 +243,7 @@ const Oportunidades = () => {
             totalVagasSemFiltro={vagas.length}
           />
         );
+        
       case "oportunidades":
       default:
         return (
@@ -260,6 +353,31 @@ const Oportunidades = () => {
                     <UserPlusIcon />{" "}
                     <span className="d-none d-sm-inline ms-1">
                       Cadastrar Currículo
+                    </span>
+                  </button>
+                </li>
+
+                <li
+                  className={`nav-item painel ${
+                    escolha == "Empresa" ? "ativo" : "inativo"
+                  }`}
+                >
+                  <button
+                    onClick={() => setCurrentPage("vagasempresa")}
+                    className="nav-link btn btn-link text-white d-flex align-items-center"
+                  >
+                    <BriefcaseIcon />{" "}
+                    <span className="d-none d-sm-inline ms-1">
+                      Vagas
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => setCurrentPage("visualizarcurriculomodal")}
+                    className="nav-link btn btn-link text-white d-flex align-items-center"
+                  >
+                    <BriefcaseIcon />{" "}
+                    <span className="d-none d-sm-inline ms-1">
+                      visualizar curriculo
                     </span>
                   </button>
                 </li>
