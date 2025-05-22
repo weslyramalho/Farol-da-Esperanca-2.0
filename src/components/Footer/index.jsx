@@ -6,20 +6,24 @@ const Footer = () => {
     <div className="footer container-fluid">
       <div className="conteudo-footer">
         <div className="elemento1-footer">
-          <Link to="/">
-            <a className="nav-link opc">HOME</a>
+          <Link to="/" className="nav-link opc">
+            HOME
           </Link>
-          <Link to="/oportunidades">
-            <a className="nav-link opc">OPORTUNIDADES</a>
+
+          <Link to="/oportunidades" className="nav-link opc">
+            OPORTUNIDADES
           </Link>
-          <Link to="/recursoseapoio">
-            <a className="nav-link opc">RECURSOS E APOIO</a>
+
+          <Link to="/recursoseapoio" className="nav-link opc">
+            RECURSOS E APOIO
           </Link>
-          <Link to="/historiasdesucesso">
-            <a className="nav-link opc ">HISTÓRIAS DE SUCESSO</a>
+
+          <Link to="/historiasdesucesso" className="nav-link opc ">
+            HISTÓRIAS DE SUCESSO
           </Link>
-          <Link to="/sobrenos">
-            <a className="nav-link opc">SOBRE NÓS</a>
+
+          <Link to="/sobrenos" className="nav-link opc">
+            SOBRE NÓS
           </Link>
         </div>
         <img className="elemento2-footer" src={logo} alt="logo-footer" />

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ModalCustom, ButtonCustom, ModalHeader, ModalBody, ModalFooter } from '../Modal';
+import DetalhesVagaModal from '../DetalhesVagaModal';
 
 const VagasEmpresa = ({ vagas, onAtualizarVaga, onRemoverVaga }) => {
   const [vagaSelecionada, setVagaSelecionada] = useState(null);
@@ -178,20 +179,9 @@ const VagasEmpresa = ({ vagas, onAtualizarVaga, onRemoverVaga }) => {
               </div>
             </form>
           ) : (
-            <div>
-              <h4>{vagaSelecionada?.titulo}</h4>
-              <p><strong>Empresa:</strong> {vagaSelecionada?.empresa}</p>
-              <p><strong>Local:</strong> {vagaSelecionada?.local}</p>
-              <p><strong>Tipo de Contrato:</strong> {vagaSelecionada?.tipoContrato}</p>
-              <p><strong>Salário:</strong> {vagaSelecionada?.salario}</p>
-              <div className="mt-3">
-                <h5>Descrição:</h5>
-                <p style={{ whiteSpace: 'pre-line' }}>{vagaSelecionada?.descricao}</p>
-              </div>
-              <p className="text-muted mt-3">
-                <small>Cadastrada em: {vagaSelecionada?.dataCadastro}</small>
-              </p>
-            </div>
+            <DetalhesVagaModal 
+            vagaSelecionada={vagaSelecionada}
+            />
           )}
         </ModalBody>
         <ModalFooter>

@@ -26,31 +26,21 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse z-3" id="navbarNavAltMarkup">
           <div className="navbar-nav naveg">
-            <Link to="/">
-            <a className="nav-link opc">
-              HOME
-            </a>
+            <Link className="nav-link opc" to="/">HOME
             </Link>
-            <Link to="/oportunidades">
-            <a className="nav-link opc">
+            <Link to="/oportunidades" className="nav-link opc">
               OPORTUNIDADES
-            </a>
             </Link>
-           <Link to="/recursoseapoio">
-           <a className="nav-link opc">
+           <Link to="/recursoseapoio" className="nav-link opc">
               RECURSOS E APOIO
-            </a>
-           </Link>
-           <Link to="/historiasdesucesso">
-           <a className="nav-link opc ">
+            </Link>
+          
+           <Link to="/historiasdesucesso" className="nav-link opc ">
               HISTÓRIAS DE SUCESSO
-            </a>
-           </Link>
-            <Link to="/sobrenos">
-            <a className="nav-link opc">
+            </Link>
+            <Link to="/sobrenos" className="nav-link opc">
               SOBRE NÓS
-            </a>
-           </Link>
+            </Link>
             
           </div>
         </div>

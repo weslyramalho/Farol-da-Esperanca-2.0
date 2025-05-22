@@ -90,6 +90,7 @@ const Oportunidades = () => {
   const abrirModal = (curriculo) => {
     setCurriculoSelecionado(curriculo);
     setMostrarModal(true);
+    console.log("abara o modal!!")
   };
 
   const fecharModal = () => {
@@ -118,6 +119,7 @@ const Oportunidades = () => {
       setCurrentPage("listarVagas");
       setEscolha("Candidato");
     }
+    console.log(vagaSelecionada)
 
   };
   const adicionarNovaVaga = (novaVaga) => {
@@ -130,22 +132,14 @@ const Oportunidades = () => {
     alert("Currículo enviado com sucesso!");
   };
 
-  const handleVerDetalhesVaga = (vaga) => {
-    setVagaSelecionada(vaga);
-  };
-
-  const handleFecharModalDetalhes = () => {
-    setVagaSelecionada(null);
-  };
-
   const handleFecharModalCurriculo =() => {
     setCurriculoSelecionado(null);
   }
 
-  const handleAplicarCurriculoParaVaga = (vaga) => {
-    console.log(
-      `Usuário aplicou para a vaga: ${vaga.titulo} na empresa ${vaga.empresa}`
-    );
+  const handleAplicarCurriculoParaVaga = (vagaSelecionada) => {
+    setVagaSelecionada(vagaSelecionada)
+    alert(`Usuário aplicou para a vaga: ${vagaSelecionada.titulo} na empresa ${vagaSelecionada.empresa}`)
+   
   };
 
   const handlePesquisaChange = (event) => {
@@ -234,16 +228,16 @@ const handleRemoverVaga = (id) => {
       case "cadastrarCurriculo":
         return <CadastrarCurriculo onNovoCurriculo={adicionarNovoCurriculo} />;
       case "listarVagas":
-        return (
-          <ListarVagas
-            vagas={vagasFiltradas}
-            onAplicar={handleVerDetalhesVaga}
-            termoPesquisa={termoPesquisa}
-            onPesquisaChange={handlePesquisaChange}
-            totalVagasSemFiltro={vagas.length}
+        return (        
+           <ListarVagas 
+          onSalvaCandidatura={handleAplicarCurriculoParaVaga}
+          vagas={vagasFiltradas}
+          termoPesquisa={termoPesquisa}
+          onPesquisaChange={handlePesquisaChange}
+          totalVagasSemFiltro={vagas.lenght}
           />
+             
         );
-        
       case "oportunidades":
       default:
         return (
@@ -405,13 +399,6 @@ const handleRemoverVaga = (id) => {
 
       <main className="container flex-grow-1 py-4 py-md-5">{renderPage()}</main>
 
-      {vagaSelecionada && (
-        <DetalhesVagaModal
-          vaga={vagaSelecionada}
-          onClose={handleFecharModalDetalhes}
-          onAplicarCurriculo={handleAplicarCurriculoParaVaga}
-        />
-      )}
     </div>
   );
 };

@@ -1,19 +1,43 @@
+import { useState } from "react";
 import { SearchIcon } from "../icons";
+import { ButtonCustom, ModalBody, ModalCustom, ModalFooter, ModalHeader } from "../Modal";
+import DetalhesVagaModal from "../DetalhesVagaModal";
 
+const ListarVagas = ({
+  vagas,
+  termoPesquisa,
+  onPesquisaChange,
+  totalVagasSemFiltro,
+  onSalvaCandidatura,
+  
+}) => {
+  const [vagaSelecionada, setVagaSelecionada] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
-const ListarVagas = ({ vagas, onAplicar, termoPesquisa, onPesquisaChange, totalVagasSemFiltro }) => {
+  const handleVisualizar = (vaga) => {
+    setVagaSelecionada(vaga);
+    setShowModal(true);
+  };
+
+  const salvarCandidatura =(vagaSelecionada)=>{
+    onSalvaCandidatura(vagaSelecionada);
+    setShowModal(false);
+  }
+
   return (
-    <div className="mx-auto" style={{ maxWidth: '900px' }}>
+    <div className="mx-auto" style={{ maxWidth: "900px" }}>
       <h2 className="h3 mb-4 text-center text-md-start">Vagas em Aberto</h2>
-      
+
       {/* Barra de Pesquisa */}
       <div className="mb-4">
         <div className="input-group">
-          <span className="input-group-text" id="basic-addon1"><SearchIcon /></span>
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Pesquisar por título, empresa ou local..." 
+          <span className="input-group-text" id="basic-addon1">
+            <SearchIcon />
+          </span>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Pesquisar por título, empresa ou local..."
             aria-label="Pesquisar vagas"
             value={termoPesquisa}
             onChange={onPesquisaChange}
@@ -29,21 +53,30 @@ const ListarVagas = ({ vagas, onAplicar, termoPesquisa, onPesquisaChange, totalV
           ) : totalVagasSemFiltro === 0 ? (
             <p>Nenhuma vaga cadastrada no momento.</p>
           ) : (
-            <p>Todas as vagas foram filtradas. Limpe a pesquisa para ver mais.</p>
+            <p>
+              Todas as vagas foram filtradas. Limpe a pesquisa para ver mais.
+            </p>
           )}
         </div>
       ) : null}
 
       {/* Lista de Vagas */}
       <div className="row row-cols-1 row-cols-md-1 g-4">
-        {vagas.map(vaga => (
+        {vagas.map((vaga) => (
           <div key={vaga.id} className="col">
             <div className="card h-100 shadow-sm hover-effect">
               <div className="card-body d-flex flex-column">
                 <h3 className="card-title h5 text-primary">{vaga.titulo}</h3>
-                <p className="card-subtitle mb-2 text-muted fw-bold">{vaga.empresa}</p>
-                <p className="card-text small mb-1">{vaga.local} - {vaga.tipoContrato}</p>
-                <p className="card-text small text-truncate" style={{ WebkitLineClamp: 3 }}>
+                <p className="card-subtitle mb-2 text-muted fw-bold">
+                  {vaga.empresa}
+                </p>
+                <p className="card-text small mb-1">
+                  {vaga.local} - {vaga.tipoContrato}
+                </p>
+                <p
+                  className="card-text small text-truncate"
+                  style={{ WebkitLineClamp: 3 }}
+                >
                   {vaga.descricao}
                 </p>
                 {vaga.salario && (
@@ -52,10 +85,12 @@ const ListarVagas = ({ vagas, onAplicar, termoPesquisa, onPesquisaChange, totalV
                   </p>
                 )}
                 <p className="card-text mt-auto pt-2">
-                  <small className="text-muted">Cadastrada em: {vaga.dataCadastro}</small>
+                  <small className="text-muted">
+                    Cadastrada em: {vaga.dataCadastro}
+                  </small>
                 </p>
-                <button 
-                  onClick={() => onAplicar(vaga)}
+                <button
+                  onClick={()=> handleVisualizar(vaga)}
                   className="btn btn-info btn-sm align-self-start mt-2"
                 >
                   Ver Detalhes / Aplicar
@@ -65,12 +100,35 @@ const ListarVagas = ({ vagas, onAplicar, termoPesquisa, onPesquisaChange, totalV
           </div>
         ))}
       </div>
+      <ModalCustom
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        size="lg"
+      >
+        <ModalHeader>
+          <h3>Detalhes da Vaga {vagaSelecionada?.titulo}</h3>
+        </ModalHeader>
+        <ModalBody>
+          <DetalhesVagaModal 
+          vagaSelecionada={vagaSelecionada}
+          />
+        </ModalBody>
+        <ModalFooter>
+          <>
+          <ButtonCustom variant="secundary" onClick={()=> setShowModal(false)} >Cancelar</ButtonCustom>
+          <ButtonCustom variant="primary" onClick={()=>salvarCandidatura(vagaSelecionada)} >Aplicar para vaga</ButtonCustom>
+            <ButtonCustom variant="secondary" onClick={() => setShowModal(false)}>
+              Fechar
+            </ButtonCustom>
+          </>
+        </ModalFooter>
+      </ModalCustom>
 
       {/* Estilos */}
       <style jsx>{`
         .hover-effect:hover {
           transform: translateY(-2px);
-          box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
           transition: all 0.3s ease;
         }
       `}</style>
