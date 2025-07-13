@@ -1,0 +1,186 @@
+
+
+.candidatos-aplicados-container {
+    padding: 30px;
+    background-color: #f4f7f6;
+    min-height: calc(100vh - 60px); /* Ajusta altura com base em header/footer */
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+}
+
+.page-header h2 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin: 0;
+}
+
+/* Mensagem quando não há aplicações */
+.no-aplicacoes-message {
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #555;
+    font-size: 1.1em;
+    margin-top: 30px;
+}
+
+.no-aplicacoes-message .btn-primary-custom { /* Estilo para o botão "Criar Primeira Vaga" */
+    margin-top: 20px;
+    width: auto;
+    display: inline-flex;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.no-aplicacoes-message .btn-primary-custom:hover {
+    background-color: #2980b9;
+}
+
+/* Lista de Aplicações em Grid */
+.aplicacoes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsivo em colunas */
+    gap: 25px; /* Espaçamento entre os cards */
+}
+
+/* Card Individual de Aplicação */
+.aplicacao-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px; /* Altura mínima para consistência visual */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.card-title {
+    color: #34495e;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* Badges de Status da Candidatura */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px; /* Borda arredondada para parecer um badge */
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+}
+
+/* Cores de status de exemplo (personalize conforme necessário) */
+.status-aplicada { background-color: #3498db; }    /* Azul */
+.status-em-analise { background-color: #f39c12; }  /* Laranja */
+.status-aprovada { background-color: #28a745; }   /* Verde */
+.status-rejeitada { background-color: #e74c3c; }   /* Vermelho */
+
+
+.card-body {
+    flex-grow: 1; /* Permite que o corpo ocupe o espaço disponível */
+}
+
+.card-text {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    display: flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    gap: 8px; /* Espaçamento entre ícone e texto */
+}
+
+.card-text .svg-inline--fa { /* Estilo para ícones dentro do texto */
+    color: #7f8c8d;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: flex-end; /* Alinha botões à direita */
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+}
+
+.btn { /* Estilo base para botões de ação */
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-view-curriculo {
+    background-color: #3498db; /* Azul */
+    color: white;
+}
+.btn-view-curriculo:hover {
+    background-color: #2980b9;
+}
+
+.btn-update-status { /* Exemplo de botão para atualização de status */
+    background-color: #95a5a6; /* Cinza */
+    color: white;
+}
+.btn-update-status:hover {
+    background-color: #7f8c8d;
+}
+
+/* --- Mensagens de Erro e Sucesso (Estilos Reutilizados) --- */
+.error-message, .success-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    text-align: left;
+    border: 1px solid;
+    color: #c0392b; /* Padrão para erros */
+    background-color: #fdecea; /* Padrão para fundo de erros */
+}
+
+.success-message {
+    color: #27ae60;
+    background-color: #e6faed;
+    border-color: #27ae60;
+}
+
+/* --- Estilos para Carregamento --- */
+.loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: #555;
+    font-size: 1.2em;
+    text-align: center;
+}

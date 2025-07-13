@@ -1,0 +1,203 @@
+/* src/components/VisualizarCurriculo/VisualizarCurriculo.css */
+
+.visualizar-curriculo-container {
+    padding: 30px;
+    background-color: #f4f7f6;
+    min-height: calc(100vh - 60px); /* Ajuste conforme seu header/footer */
+}
+
+.visualizar-curriculo-container h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.curriculo-details {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Linha divisória entre detalhes */
+    padding-bottom: 15px;
+}
+
+.detail-item:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+.detail-item h3 {
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.detail-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.detail-item p a {
+    color: #3498db; /* Cor para links */
+    text-decoration: none;
+}
+
+.detail-item p a:hover {
+    text-decoration: underline;
+}
+
+/* --- Botões de Ação --- */
+.actions {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os botões */
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre ícone e texto */
+    border: none;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #cccccc;
+}
+
+.btn-edit {
+    background-color: #f39c12; /* Laranja para editar */
+    color: white;
+}
+
+.btn-edit:hover:not(:disabled) {
+    background-color: #e67e22;
+}
+
+.btn-delete {
+    background-color: #e74c3c; /* Vermelho para deletar */
+    color: white;
+}
+
+.btn-delete:hover:not(:disabled) {
+    background-color: #c0392b;
+}
+
+.btn-primary-custom { /* Para o botão "Cadastrar Currículo" */
+    background-color: #3498db;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary-custom:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+/* --- Caixa de Confirmação de Exclusão --- */
+.delete-confirmation {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os elementos da caixa */
+    align-items: flex-start; /* Alinha texto e botões à esquerda */
+}
+
+.delete-confirmation p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.delete-confirmation button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.delete-confirmation button.btn-delete { /* Botão de confirmar exclusão */
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-confirmation button.btn-delete:hover:not(:disabled) {
+    background-color: #c0392b;
+}
+
+.delete-confirmation button.btn-secondary { /* Botão de cancelar */
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.delete-confirmation button.btn-secondary:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+/* --- Estilos para Carregamento e Erro/Sucesso --- */
+.loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: #555;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.error-message, .success-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para o ícone de fechar */
+    gap: 10px;
+    text-align: left;
+}
+
+.error-message {
+    color: #e74c3c;
+    background-color: #fce8e6;
+    border: 1px solid #e74c3c;
+}
+
+.success-message {
+    color: #27ae60;
+    background-color: #e6faed;
+    border: 1px solid #27ae60;
+}
+
+.close-icon { /* Ícone 'X' para fechar mensagem */
+    cursor: pointer;
+    font-size: 0.9em;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.close-icon:hover {
+    opacity: 1;
+}

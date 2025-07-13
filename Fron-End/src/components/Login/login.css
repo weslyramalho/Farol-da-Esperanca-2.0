@@ -1,0 +1,122 @@
+.containerr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7f6; /* Fundo suave */
+    padding: 20px;
+}
+
+
+.log-container {
+  background-color: #FFFBE4;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-form-container {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 450px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.form-control:focus {
+  border-color: #8a84ff;
+  box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.25);
+}
+
+.input-group-text {
+  background-color: transparent;
+  border-left: 0;
+}
+
+.password-icon {
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.valid-icon {
+  color: #28a745;
+}
+
+.btn-primary-custom {
+  background-color: #6366f1;
+  border-color: #6366f1;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.btn-primary-custom:hover {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.btn-outline-secondary-custom {
+  border-color: #6c757d;
+  color: #6c757d;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.btn-outline-secondary-custom:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.forgot-password-link {
+  display: block;
+  text-align: right;
+  font-size: 0.875rem;
+  color: #6c757d;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.forgot-password-link:hover {
+  color: #4f46e5;
+}
+
+.visitor-text {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}

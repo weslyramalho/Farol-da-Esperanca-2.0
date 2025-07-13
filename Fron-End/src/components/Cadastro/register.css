@@ -1,0 +1,163 @@
+.containerr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7f6; /* Fundo suave */
+    padding: 20px;
+}
+
+.log-container { /* Ou .auth-form-container, use o que você preferir */
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; /* Largura máxima para o formulário */
+    text-align: center;
+}
+
+/* --- Estilos do Logo --- */
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* --- Títulos e Subtítulos do Formulário --- */
+.form-title {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.form-subtitle {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-size: 1em;
+}
+
+/* --- Estilos de Grupos de Formulário (Label + Input/Select) --- */
+.mb-3 { /* Classe comum para margem inferior (como no Bootstrap) */
+    margin-bottom: 1rem !important; /* 16px por padrão */
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.form-control { /* Classe comum para inputs e selects */
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* --- Estilos de Botões --- */
+.btn-primary-custom {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem; /* Para espaçar do texto abaixo */
+}
+
+.btn-primary-custom:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+.btn-primary-custom:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.btn-outline-secondary-custom {
+    background-color: transparent;
+    color: #6c757d;
+    border: 1px solid #6c757d;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-outline-secondary-custom:hover:not(:disabled) {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-outline-secondary-custom:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* --- Mensagens de Erro e Sucesso --- */
+.error-message {
+    color: #e74c3c;
+    background-color: #fce8e6;
+    border: 1px solid #e74c3c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    text-align: left;
+}
+
+.success-message {
+    color: #27ae60;
+    background-color: #e6faed;
+    border: 1px solid #27ae60;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    text-align: left;
+}
+
+/* --- Estilo para o Spinner --- */
+.spinner-icon {
+    margin-left: 10px;
+}
+
+/* --- Texto e links de visitantes --- */
+.visitor-text {
+    margin-top: 20px;
+    color: #666;
+}
+
+.visitor-text a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.visitor-text a:hover {
+    text-decoration: underline;
+}

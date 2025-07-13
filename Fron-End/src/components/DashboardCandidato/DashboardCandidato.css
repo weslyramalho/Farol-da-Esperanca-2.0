@@ -1,0 +1,214 @@
+/* src/components/DashboardCandidato/DashboardCandidato.css */
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh; /* Garante que ocupa a altura total da viewport */
+    background-color: #f4f7f6; /* Fundo suave para o dashboard */
+}
+
+/* --- Sidebar de Navegação --- */
+.sidebar {
+    width: 250px; /* Largura fixa da barra lateral */
+    background-color: #34495e; /* Cor de fundo escura */
+    color: white; /* Cor do texto */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra à direita */
+    display: flex;
+    flex-direction: column; /* Itens empilhados verticalmente */
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha divisória */
+}
+
+.profile-icon {
+    border: 2px solid white;
+    border-radius: 50%; /* Torna o ícone circular */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+    margin: 10px 0 5px;
+    color: #ecf0f1;
+}
+
+.sidebar-header p {
+    font-size: 0.9em;
+    color: #bdc3c7;
+}
+
+.sidebar-nav ul {
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px; /* Espaçamento entre itens do menu */
+}
+
+.nav-item {
+    display: flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    padding: 12px 15px;
+    color: white;
+    text-decoration: none; /* Remove sublinhado padrão */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave no hover */
+    font-size: 1.1em;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #2c3e50; /* Cor de fundo no hover/ativo */
+    color: #ffffff;
+}
+
+.nav-icon {
+    margin-right: 10px; /* Espaçamento entre ícone e texto */
+    font-size: 1.2em;
+}
+
+.logout-btn {
+    background: none; /* Remove fundo padrão do botão */
+    border: none; /* Remove borda padrão */
+    width: 100%; /* Ocupa 100% da largura do contêiner */
+    text-align: left; /* Alinha texto à esquerda */
+    cursor: pointer;
+    margin-top: 20px;
+    /* Herda estilos do .nav-item */
+}
+
+.logout-btn:hover {
+    background-color: #e74c3c; /* Vermelho para o botão de sair */
+}
+
+/* --- Conteúdo Principal do Dashboard --- */
+.dashboard-content {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    padding: 30px;
+    background-color: #ecf0f1; /* Fundo suave para o conteúdo */
+}
+
+.content-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc; /* Linha divisória */
+}
+
+.content-header h1 {
+    color: #34495e;
+    font-size: 2.2em;
+}
+
+/* --- Cards de Resumo --- */
+.dashboard-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo em grid */
+    gap: 20px; /* Espaçamento entre os cards */
+    margin-bottom: 40px;
+}
+
+.summary-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra suave */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espaça o conteúdo verticalmente */
+}
+
+.summary-icon {
+    margin-bottom: 15px; /* Espaço abaixo do ícone */
+}
+
+.summary-card h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.summary-card p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.summary-card a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.summary-card a:hover {
+    text-decoration: underline;
+}
+
+.summary-card .view-link {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center; /* Centraliza o texto e ícone */
+}
+
+.summary-card .view-icon {
+    font-size: 0.8em;
+}
+
+/* --- Seção de Atividade Recente --- */
+.recent-activity {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.recent-activity h2 {
+    color: #34495e;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.recent-activity ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-activity li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.recent-activity li:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+/* --- Estilos para Carregamento e Erro --- */
+.loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Altura mínima para visibilidade */
+    color: #555;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.error-message {
+    color: #c0392b;
+    background-color: #fdecea;
+    border: 1px solid #c0392b;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
