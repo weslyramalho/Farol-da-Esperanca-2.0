@@ -1,36 +1,139 @@
-.imag-carrocel{
-    height: 719px;
+.carousel-item img {
+  height: 550px; /* Altura aumentada para mais impacto */
+  object-fit: cover;
+  filter: brightness(0.6); /* Um pouco mais escuro para melhor contraste */
 }
 
-.area-dados{
-    display: flex;
-    align-items: center;
-    align-self: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 200px;
-    background-color: #1a4268;
-    color: #FFFF;
+.carousel-caption {
+  /* Usando um gradiente para um visual mais moderno */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1rem; /* Mais preenchimento vertical */
+  border-radius: 0; /* Remove o raio para se misturar com a borda inferior */
+  text-align: left; /* Alinha o texto à esquerda para um visual mais limpo */
+  padding-left: 5%; /* Recuo do texto */
+  padding-right: 5%;
 }
+
+.carousel-caption h5 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  max-width: 70%; /* Evita que o texto ocupe toda a largura */
+}
+
+.area-dados {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Permite que os itens quebrem em telas menores */
+  gap: 1.5rem; /* Adiciona espaço entre os itens que quebram */
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px; /* Raio mais suave */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  margin-top: -50px; /* Sobrepõe ao carrossel */
+  position: relative; /* Necessário para a sobreposição */
+  z-index: 10;
+}
+
 .area-dados-numeros {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    width: 200px;
-  
+  flex: 1; /* Permite que os itens cresçam */
+  min-width: 200px; /* Largura mínima antes de quebrar */
+  padding: 1rem;
+  transition: transform 0.3s ease;
 }
-h2{
-    display: flex;
-    font-size: 50px;
-    align-items: center;
-    justify-content: center;
-}
-@media (max-width: 509px) {
-   .area-dados{
-        flex-direction: column;
-        height: 100%;
-    }
 
+.area-dados-numeros:hover {
+  transform: translateY(-5px);
 }
+
+.area-dados-numeros h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0056b3; /* Mantendo a cor da marca */
+  margin-bottom: 0.25rem;
+}
+
+.area-dados-numeros p {
+  color: #6c757d;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.home-info-section {
+  padding: 3rem 2rem;
+  background-color: #f8f9fa; /* Cinza muito claro para diferenciar dos cards brancos */
+  border-radius: 12px;
+  margin-top: 3rem; /* Espaço após a área de dados */
+}
+
+.info-block {
+  margin-bottom: 3rem;
+}
+
+.info-block:last-child {
+  margin-bottom: 0;
+}
+
+.info-block h2 {
+  font-size: 2.2rem;
+  color: #2c3e50; /* Um azul/cinza mais moderno e menos saturado */
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid #007bff; /* Um azul mais brilhante para o destaque */
+  display: inline-block; /* Faz a borda ter a largura do texto */
+}
+
+.info-block p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: left; /* Melhor para legibilidade */
+  color: #495057;
+}
+
+/* --- Ajustes Responsivos --- */
+@media (max-width: 992px) {
+  .carousel-item img {
+    height: 450px;
+  }
+  .carousel-caption h5 {
+    font-size: 2rem;
+  }
+  .carousel-caption p {
+    font-size: 1rem;
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .area-dados {
+    margin-top: 2rem; /* Reduz a sobreposição em telas menores */
+    flex-direction: column; /* Empilha os itens verticalmente */
+    gap: 2rem;
+  }
+
+  .home-info-section {
+    padding: 2rem 1rem;
+  }
+
+  .info-block h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    height: 300px;
+  }
+  .carousel-caption {
+    display: none !important; /* Esconde a legenda em telas muito pequenas */
+  }
+}
+
