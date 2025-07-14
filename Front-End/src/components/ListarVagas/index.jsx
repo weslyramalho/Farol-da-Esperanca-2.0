@@ -75,16 +75,25 @@ const ListarVagas = () => {
         }
     };
 
-    // useEffect para carregar as vagas ao montar o componente
+    // useEffect para carregar as vagas, com debounce para a pesquisa.
+    // Isso evita fazer uma requisição a cada tecla digitada.
     useEffect(() => {
-        fetchVagas(''); // Carrega todas as vagas inicialmente
-    }, [authToken]); // Recarrega se o token mudar (login/logout)
+        // Define um timer para atrasar a chamada da API.
+        const timerId = setTimeout(() => {
+            // A chamada inicial com termo vazio vai acontecer, bem como as buscas.
+            fetchVagas(termoPesquisa);
+        }, 500); // Atraso de 500ms após o usuário parar de digitar.
 
-    // Função para lidar com a mudança na barra de pesquisa (dispara a busca)
+        // Função de limpeza: será executada antes do próximo useEffect.
+        // Isso cancela o timer anterior se o usuário continuar digitando.
+        return () => {
+            clearTimeout(timerId);
+        };
+    }, [termoPesquisa, authToken]); // O efeito é re-executado quando o termo de pesquisa ou o token mudam.
+
+    // Função para lidar com a mudança na barra de pesquisa (apenas atualiza o estado)
     const handlePesquisaChange = (e) => {
-        const termo = e.target.value;
-        setTermoPesquisa(termo);
-        fetchVagas(termo); 
+        setTermoPesquisa(e.target.value);
     };
 
     // Função para exibir o modal de detalhes da vaga
