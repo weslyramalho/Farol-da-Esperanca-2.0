@@ -5,6 +5,12 @@ Tema: Oportunidades de empregos para Refugiados
 Squad - 36
 
 Integrantes ativos:
+Geriane Marilia de Oliveira Alves
+Isabella yasmin da Silva Bacellar
+Joel de Jesus Serra(vice-líder)
+Lisane Lucia Zanatta(Líder)
+Wesly Ramalho Lopes
+Wilza de jesus Dourado Aquino dos Santos
 
 Link
 Hospedagem vercel: https://farol-da-esperanca-2-0.vercel.app/
