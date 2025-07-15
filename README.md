@@ -40,6 +40,4 @@ A escolha do problema da falta de oportunidades e do isolamento social enfrentad
 
 A análise de dados oficiais e pesquisas identificou a falta de oportunidades e o isolamento social como os principais desafios enfrentados por refugiados no Brasil. Barreiras no acesso a serviços básicos, discriminação e dificuldades na inserção no mercado de trabalho agravam a situação, especialmente pela não validação de diplomas e experiências profissionais. O projeto “Farol da Esperança” propõe soluções como cursos de português, capacitação, mentoria e ações de conscientização para promover a inclusão. As referências utilizadas incluem ACNUR, CONARE e o Ministério da Justiça, garantindo a credibilidade das informações.
 
-Principais linguagens, frameworks e bibliotecas utilizadas no
-back-end e no front-end:
 
