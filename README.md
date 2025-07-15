@@ -1,6 +1,6 @@
 Farol da Esperança
 _______________________________________________________
-Tema: Assitência e apoio a pessoas Refugiados
+Tema: Assitência e apoio a pessoas Refugiadas
 
 Squad - 36
 
