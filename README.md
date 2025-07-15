@@ -1,6 +1,6 @@
 Farol da Esperança
 _______________________________________________________
-Tema: Oportunidades de empregos para Refugiados
+Tema: Assitência e apoio a pessoas Refugiados
 
 Squad - 36
 
