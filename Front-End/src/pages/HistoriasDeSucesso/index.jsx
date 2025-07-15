@@ -4,7 +4,7 @@ const HistoriasDeSucesso = () => {
     return (
         <main className="historias-container">
             <header className="historias-header">
-                <h1>Histórias de Sucesso: Imigrantes que Encontraram Oportunidades no Brasil</h1>
+                <h1>Histórias de Sucesso: Refugiados que Encontraram Oportunidades no Brasil</h1>
                 <p>
                     As histórias a seguir demonstram o impacto do nosso site em ajudar imigrantes a superar desafios e encontrar emprego no Brasil, garantindo estabilidade e novas oportunidades em um país diferente.
                 </p>
