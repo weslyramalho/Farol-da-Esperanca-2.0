@@ -40,8 +40,8 @@ const ListarVagas = () => {
 
         try {
             const url = termo.trim() === '' 
-                ? 'http://localhost:8080/api/vagas'
-                : `http://localhost:8080/api/vagas/search?termo=${encodeURIComponent(termo)}`;
+                ? 'http://201.23.66.57:8080/api/vagas'
+                : `http://201.23.66.57:8080/api/vagas/search?termo=${encodeURIComponent(termo)}`;
             
             const headers = {
                 'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ const ListarVagas = () => {
 
         try {
             // Requisição POST para o endpoint de aplicação de candidatura
-            const response = await fetch(`http://localhost:8080/api/candidaturas/aplicar/${vagaId}`, {
+            const response = await fetch(`http://201.23.66.57:8080/api/candidaturas/aplicar/${vagaId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ const ListarVagas = () => {
         setActionError('');
 
         try {
-            const response = await fetch(`http://localhost:8080/api/vagas/${vagaId}/salvar`, { // Endpoint de salvar vaga
+            const response = await fetch(`http://201.23.66.57:8080/api/vagas/${vagaId}/salvar`, { // Endpoint de salvar vaga
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

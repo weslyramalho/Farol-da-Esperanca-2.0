@@ -48,7 +48,7 @@ const DashboardCandidato = () => {
 
             try {
                 // Faz a requisição ao backend para obter os detalhes do usuário logado (incluindo perfil)
-                const response = await fetch('http://localhost:8080/api/users/me', {
+                const response = await fetch('http://201.23.66.57:8080/api/users/me', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

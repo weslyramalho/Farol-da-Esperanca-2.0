@@ -35,7 +35,8 @@ export const AuthProvider = ({ children }) => {
                 setLoading(true); // Inicia o estado de carregamento
                 setError(null);   // Limpa erros anteriores
                 try {
-                    const response = await fetch('http://localhost:8080/api/users/me', {
+                    //const response = await fetch('http://localhost:8080/api/users/me', {
+                    const response = await fetch('http://201.23.66.57:8080/api/users/me', {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -92,7 +93,7 @@ export const AuthProvider = ({ children }) => {
         setLoading(true); // Inicia o carregamento
         setError(null);   // Limpa erros anteriores
         try {
-            const response = await fetch('http://localhost:8080/api/auth/login', {
+            const response = await fetch('http://201.23.66.57:8080/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -136,7 +137,7 @@ export const AuthProvider = ({ children }) => {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch('http://localhost:8080/api/auth/register', {
+            const response = await fetch('http://201.23.66.57:8080/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

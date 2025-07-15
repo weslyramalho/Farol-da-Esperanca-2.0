@@ -29,7 +29,7 @@ const MinhasCandidaturas = () => {
             setMessage(''); // Limpa mensagens ao carregar
 
             try {
-                const response = await fetch('http://localhost:8080/api/candidaturas/by-candidato/me', {
+                const response = await fetch('http://201.23.66.57:8080/api/candidaturas/by-candidato/me', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const MinhasCandidaturas = () => {
 
         try {
             // Requisição DELETE para o endpoint de exclusão de candidatura
-            const response = await fetch(`http://localhost:8080/api/candidaturas/${candidaturaToWithdraw.id}`, {
+            const response = await fetch(`http://201.23.66.57:8080/api/candidaturas/${candidaturaToWithdraw.id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }, // Envia o token JWT
             });

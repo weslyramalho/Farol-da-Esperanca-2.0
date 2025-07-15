@@ -39,7 +39,7 @@ const EditarVaga = () => {
 
             try {
                 // Endpoint para buscar a vaga por ID (PÚBLICO)
-                const response = await fetch(`http://localhost:8080/api/vagas/${vagaId}`);
+                const response = await fetch(`http://201.23.66.57:8080/api/vagas/${vagaId}`);
                 
                 if (response.ok) {
                     const data = await response.json();
@@ -111,7 +111,7 @@ const EditarVaga = () => {
 
         try {
             // Requisição PUT para o endpoint de atualização de vaga
-            const response = await fetch(`http://localhost:8080/api/vagas/${vagaId}`, {
+            const response = await fetch(`http://201.23.66.57:8080/api/vagas/${vagaId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

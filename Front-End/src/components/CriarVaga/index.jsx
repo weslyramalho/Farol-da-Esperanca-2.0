@@ -71,7 +71,7 @@ const CriarVaga = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/vagas", {
+      const response = await fetch("http://201.23.66.57:8080/api/vagas", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

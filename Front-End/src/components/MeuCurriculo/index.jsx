@@ -43,7 +43,7 @@ const MeuCurriculo = () => {
         setMessage('');
 
         try {
-            const response = await fetch('http://localhost:8080/api/curriculos/by-candidate/me', {
+            const response = await fetch('http://201.23.66.57:8080/api/curriculos/by-candidate/me', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -118,11 +118,11 @@ const MeuCurriculo = () => {
             linkedin: linkedin
         };
 
-        let url = 'http://localhost:8080/api/curriculos';
+        let url = 'http://201.23.66.57:8080/api/curriculos';
         let method = 'POST';
 
         if (curriculoId) {
-            url = `http://localhost:8080/api/curriculos/${curriculoId}`;
+            url = `http://201.23.66.57:8080/api/curriculos/${curriculoId}`;
             method = 'PUT';
         }
 

@@ -32,7 +32,7 @@ const SolicitarRedefinicaoSenha = () => {
 
         try {
             // Requisição POST para o endpoint do backend que solicita o token de redefinição
-            const response = await fetch('http://localhost:8080/api/password-reset/request', {
+            const response = await fetch('http://201.23.66.57:8080/api/password-reset/request', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
