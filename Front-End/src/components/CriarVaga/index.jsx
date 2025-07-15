@@ -71,7 +71,7 @@ const CriarVaga = () => {
     };
 
     try {
-      const response = await fetch("http://201.23.66.57:8080/api/vagas", {
+      const response = await fetch("https://245c2fba6c85.ngrok-free.app/api/vagas", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

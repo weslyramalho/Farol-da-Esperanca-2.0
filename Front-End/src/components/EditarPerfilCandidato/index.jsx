@@ -39,7 +39,7 @@ const EditarPerfilCandidato = () => {
             setMessage('');
 
             try {
-                const response = await fetch('http://201.23.66.57:8080/api/users/me', {
+                const response = await fetch('https://245c2fba6c85.ngrok-free.app/api/users/me', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ const EditarPerfilCandidato = () => {
 */
         try {
             // Requisição PUT para atualizar o perfil do Candidato
-            const candidatoResponse = await fetch(`http://201.23.66.57:8080/api/candidatos/${candidatoId}`, {
+            const candidatoResponse = await fetch(`https://245c2fba6c85.ngrok-free.app/api/candidatos/${candidatoId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

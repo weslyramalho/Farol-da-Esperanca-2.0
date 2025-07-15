@@ -64,7 +64,7 @@ const RedefinirSenha = () => {
 
         try {
             // Requisição POST para o endpoint do backend que redefine a senha
-            const response = await fetch('http://201.23.66.57:8080/api/password-reset/reset', {
+            const response = await fetch('https://245c2fba6c85.ngrok-free.appapi/password-reset/reset', {
                 method: 'POST', // CRÍTICO: Deve ser POST, pois envia dados no corpo
                 headers: {
                     'Content-Type': 'application/json',

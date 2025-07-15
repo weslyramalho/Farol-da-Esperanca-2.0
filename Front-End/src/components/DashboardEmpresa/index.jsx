@@ -49,7 +49,7 @@ const DashboardEmpresa = () => {
 
             try {
                 // Requisição para obter os dados do usuário logado (incluindo perfil de empresa)
-                const response = await fetch('http://201.23.66.57:8080/api/users/me', {
+                const response = await fetch('https://245c2fba6c85.ngrok-free.app/api/users/me', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const DashboardEmpresa = () => {
                         setEmpresaCnpj(userData.perfilData.cnpj || 'Não informado'); // Seta o CNPJ
 
                         // Opcional: Aqui você pode fazer outras chamadas para métricas da empresa
-                         const vagasResponse = await fetch('http://201.23.66.57:8080/api/vagas/by-empresa/me', { 
+                         const vagasResponse = await fetch('https://245c2fba6c85.ngrok-free.app/api/vagas/by-empresa/me', { 
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',

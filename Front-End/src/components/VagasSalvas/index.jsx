@@ -34,7 +34,7 @@ const VagasSalvas = () => {
 
             try {
                 // Endpoint para buscar vagas salvas do CANDIDATO LOGADO
-                const response = await fetch('http://201.23.66.57:8080/api/candidatos/me/vagas-salvas', {
+                const response = await fetch('https://245c2fba6c85.ngrok-free.app/api/candidatos/me/vagas-salvas', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const VagasSalvas = () => {
         try {
             // Endpoint para DESSALVAR UMA VAGA
             // Você precisará criar este endpoint: DELETE /api/candidatos/me/vagas-salvas/{vagaId}
-            const response = await fetch(`http://201.23.66.57:8080/api/candidatos/me/vagas-salvas/${vagaToUnsave.id}`, {
+            const response = await fetch(`https://245c2fba6c85.ngrok-free.app/api/candidatos/me/vagas-salvas/${vagaToUnsave.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`

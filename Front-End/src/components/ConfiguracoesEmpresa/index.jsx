@@ -42,7 +42,7 @@ const ConfiguracoesEmpresa = () => {
             setMessage('');
 
             try {
-                const response = await fetch('http://201.23.66.57:8080/api/users/me', {
+                const response = await fetch('https://245c2fba6c85.ngrok-free.app/api/users/me', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ const ConfiguracoesEmpresa = () => {
 */
         try {
             // Requisição PUT para atualizar o perfil da Empresa
-            const empresaResponse = await fetch(`http://201.23.66.57:8080/api/empresas/${empresaId}`, {
+            const empresaResponse = await fetch(`https://245c2fba6c85.ngrok-free.app/api/empresas/${empresaId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

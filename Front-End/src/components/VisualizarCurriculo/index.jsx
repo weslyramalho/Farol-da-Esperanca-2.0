@@ -60,9 +60,9 @@ const VisualizarCurriculo = () => {
       // Se um ID de candidato está presente na URL (visualizando currículo de OUTRO), usa esse ID.
       // Caso contrário (se não houver ID na URL), usa o endpoint 'by-candidate/me' para o próprio currículo.
       if (urlCandidatoId) {
-        url = `http://201.23.66.57:8080/api/curriculos/by-candidate/${urlCandidatoId}`;
+        url = `https://245c2fba6c85.ngrok-free.app/api/curriculos/by-candidate/${urlCandidatoId}`;
       } else {
-        url = "http://201.23.66.57:8080/api/curriculos/by-candidate/me";
+        url = "https://245c2fba6c85.ngrok-free.app/api/curriculos/by-candidate/me";
       }
 
       console.log("VisualizarCurriculo: Buscando currículo da URL:", url);
@@ -149,7 +149,7 @@ const VisualizarCurriculo = () => {
     try {
       // Requisição DELETE para o endpoint do backend
       const response = await fetch(
-        `http://201.23.66.57:8080/api/curriculos/${curriculo.id}`,
+        `https://245c2fba6c85.ngrok-free.app/api/curriculos/${curriculo.id}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` }, // Envia o token JWT

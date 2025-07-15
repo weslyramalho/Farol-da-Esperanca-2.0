@@ -36,7 +36,7 @@ const MinhasVagas = () => {
                 // Endpoint para buscar vagas da EMPRESA LOGADA
                 // Você precisará criar este endpoint no backend.
                 // Exemplo: GET /api/vagas/by-empresa/me ou /api/empresas/me/vagas
-                const response = await fetch('http://201.23.66.57:8080/api/vagas/by-empresa/me', {
+                const response = await fetch('https://245c2fba6c85.ngrok-free.app/api/vagas/by-empresa/me', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const MinhasVagas = () => {
         if (!token) { navigate('/login'); return; }
 
         try {
-            const response = await fetch(`http://201.23.66.57:8080/api/vagas/${vagaToDelete.id}`, {
+            const response = await fetch(`https://245c2fba6c85.ngrok-free.app/api/vagas/${vagaToDelete.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`

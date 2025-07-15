@@ -43,7 +43,7 @@ const MeuCurriculo = () => {
         setMessage('');
 
         try {
-            const response = await fetch('http://201.23.66.57:8080/api/curriculos/by-candidate/me', {
+            const response = await fetch('https://245c2fba6c85.ngrok-free.app/api/curriculos/by-candidate/me', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -118,11 +118,11 @@ const MeuCurriculo = () => {
             linkedin: linkedin
         };
 
-        let url = 'http://201.23.66.57:8080/api/curriculos';
+        let url = 'https://245c2fba6c85.ngrok-free.app/api/curriculos';
         let method = 'POST';
 
         if (curriculoId) {
-            url = `http://201.23.66.57:8080/api/curriculos/${curriculoId}`;
+            url = `https://245c2fba6c85.ngrok-free.app/api/curriculos/${curriculoId}`;
             method = 'PUT';
         }
 

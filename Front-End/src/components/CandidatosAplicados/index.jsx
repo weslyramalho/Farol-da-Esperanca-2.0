@@ -46,7 +46,7 @@ const CandidatosAplicados = () => {
         // Endpoint para buscar candidaturas para a EMPRESA LOGADA
         // Este endpoint deve ser criado no backend: GET /api/candidaturas/by-empresa/me
         const response = await fetch(
-          "http://201.23.66.57:8080/api/candidaturas/by-empresa/me",
+          "https://245c2fba6c85.ngrok-free.app/api/candidaturas/by-empresa/me",
           {
             method: "GET",
             headers: {
